@@ -28,6 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.count = 1;
+    self.whichPlayerLabel.text = @"Player 1's Turn";
 
 }
 
@@ -128,17 +129,21 @@
     {
         labelToMakeChanges.text = @"X";
         labelToMakeChanges.textColor = [UIColor redColor];
+        self.whichPlayerLabel.text = @"Player 1's Turn";
+
     }
     else
     {
         labelToMakeChanges.text = @"O";
         labelToMakeChanges.textColor = [UIColor blueColor];
+        self.whichPlayerLabel.text = @"Player 2's Turn";
+
     }
     self.count++;
 
 }
 
-}
+
 
 
 
