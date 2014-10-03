@@ -32,10 +32,7 @@
     [super viewDidLoad];
     self.count = 1;
     self.whichPlayerLabel.text = @"TURN: O";
-
-
 }
-
 
 -(UILabel *) findLabelUsingPoint:(CGPoint) point
 {
@@ -79,7 +76,6 @@
             }
 
     return pointOnLabel;
-
 }
 
 -(IBAction) onLabelTapped:(UITapGestureRecognizer *) tapGesture{
@@ -91,24 +87,41 @@
 
 -(IBAction) onDrag:(UIPanGestureRecognizer *) panGesture{
 
-    CGPoint point = [panGesture locationInView:self.view];
 
-    if(self.count % 2)
+    if([panGesture state] == UIGestureRecognizerStateEnded)
     {
-        self.yDragLabel.center = point;
-        UILabel *labelIdentifiedFromPanGesture = [self findLabelUsingPoint:point];
-        [self makeChangesCheckGameResult:labelIdentifiedFromPanGesture];
+
+        CGPoint point = [panGesture locationInView:self.view];
+
+        if(self.count % 2)
+        {
+            self.yDragLabel.center = point;
+            UILabel *labelIdentifiedFromPanGesture = [self findLabelUsingPoint:point];
+            [self makeChangesCheckGameResult:labelIdentifiedFromPanGesture];
+        }
+        else
+        {
+            self.xDragLabel.center = point;
+            UILabel *labelIdentifiedFromPanGesture = [self findLabelUsingPoint:point];
+            [self makeChangesCheckGameResult:labelIdentifiedFromPanGesture];
+        }
+
     }
     else
     {
-        self.xDragLabel.center = point;
-        UILabel *labelIdentifiedFromPanGesture = [self findLabelUsingPoint:point];
-        [self makeChangesCheckGameResult:labelIdentifiedFromPanGesture];
+        CGPoint point = [panGesture locationInView:self.view];
+        if(self.count % 2)
+        {
+            self.yDragLabel.center = point;
+
+        }
+        else
+        {
+            self.xDragLabel.center = point;
+        }
     }
 
-
 }
-
 
 -(void) makeChangesCheckGameResult:(UILabel *) temp
 {
@@ -159,9 +172,7 @@
         [self checkGameResult];
     }
 
-
 }
-
 
 -(void) makeChanges:(UILabel *) labelToMakeChanges
 {
