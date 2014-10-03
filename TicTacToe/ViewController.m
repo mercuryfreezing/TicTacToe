@@ -21,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *whichPlayerLabel;
 @property int count;
 @property (weak, nonatomic) IBOutlet UILabel *whoWon;
+@property (weak, nonatomic) IBOutlet UILabel *xDragLabel;
+@property (weak, nonatomic) IBOutlet UILabel *yDragLabel;
 
 @end
 
@@ -29,7 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.count = 1;
-    self.whichPlayerLabel.text = @"Player 1's Turn";
+    self.whichPlayerLabel.text = @"TURN: O";
 
 
 }
@@ -80,61 +82,85 @@
 
 }
 
-
 -(IBAction) onLabelTapped:(UITapGestureRecognizer *) tapGesture{
 
     CGPoint tappedPoint = [tapGesture locationInView:self.view];
-    UILabel *temp = [self findLabelUsingPoint:tappedPoint];
+    UILabel *labelIdentifiedFromTap = [self findLabelUsingPoint:tappedPoint];
+    [self makeChangesCheckGameResult:labelIdentifiedFromTap];
+}
+
+-(IBAction) onDrag:(UIPanGestureRecognizer *) panGesture{
+
+    CGPoint point = [panGesture locationInView:self.view];
+
+    if(self.count % 2)
+    {
+        self.yDragLabel.center = point;
+        UILabel *labelIdentifiedFromPanGesture = [self findLabelUsingPoint:point];
+        [self makeChangesCheckGameResult:labelIdentifiedFromPanGesture];
+    }
+    else
+    {
+        self.xDragLabel.center = point;
+        UILabel *labelIdentifiedFromPanGesture = [self findLabelUsingPoint:point];
+        [self makeChangesCheckGameResult:labelIdentifiedFromPanGesture];
+    }
 
 
+}
+
+
+-(void) makeChangesCheckGameResult:(UILabel *) temp
+{
 
     if(temp == self.labelOne)
     {
         [self makeChanges:self.labelOne];
-            [self checkGameResult];
+        [self checkGameResult];
     }
     if(temp == self.labelTwo)
     {
         [self makeChanges:self.labelTwo];
-            [self checkGameResult];
+        [self checkGameResult];
     }
     if(temp == self.labelThree)
     {
         [self makeChanges:self.labelThree];
-            [self checkGameResult];
+        [self checkGameResult];
     }
     if(temp == self.labelFour)
     {
         [self makeChanges:self.labelFour];
-            [self checkGameResult];
+        [self checkGameResult];
     }
     if(temp == self.labelFive)
     {
         [self makeChanges:self.labelFive];
-            [self checkGameResult];
+        [self checkGameResult];
     }
     if(temp == self.labelSix)
     {
         [self makeChanges:self.labelSix];
-            [self checkGameResult];
+        [self checkGameResult];
     }
     if(temp == self.labelSeven)
     {
         [self makeChanges:self.labelSeven];
-            [self checkGameResult];
+        [self checkGameResult];
     }
     if(temp == self.labelEight)
     {
         [self makeChanges:self.labelEight];
-            [self checkGameResult];
+        [self checkGameResult];
     }
     if(temp == self.labelNine)
     {
         [self makeChanges:self.labelNine];
-            [self checkGameResult];
+        [self checkGameResult];
     }
-}
 
+
+}
 
 
 -(void) makeChanges:(UILabel *) labelToMakeChanges
@@ -144,14 +170,14 @@
     {
         labelToMakeChanges.text = @"X";
         labelToMakeChanges.textColor = [UIColor redColor];
-        self.whichPlayerLabel.text = @"Player 1's Turn";
+        self.whichPlayerLabel.text = @"TURN: O";
 
     }
     else
     {
         labelToMakeChanges.text = @"O";
         labelToMakeChanges.textColor = [UIColor blueColor];
-        self.whichPlayerLabel.text = @"Player 2's Turn";
+        self.whichPlayerLabel.text = @"TURN: X";
 
     }
     self.count++;
@@ -159,7 +185,6 @@
 }
 
 -(void) checkGameResult{
-
 
 
     if(([self.labelOne.text isEqualToString: self.labelTwo.text]) && ([self.labelTwo.text isEqualToString:self.labelThree.text]))
@@ -208,7 +233,6 @@
         }
 }
 
-
 -(void) showWinner:(NSString *) whoWonString {
 
     UIAlertView *winnerAlert = [[UIAlertView alloc] init];
@@ -225,7 +249,6 @@
 
     }
 
-
 }
 
 -(void) resetGame{
@@ -240,7 +263,7 @@
     self.labelNine.text = @"";
 
     self.count = 1;
-    self.whichPlayerLabel.text = @"Player 1's Turn";
+    self.whichPlayerLabel.text = @"TURN O";
 
 }
 
