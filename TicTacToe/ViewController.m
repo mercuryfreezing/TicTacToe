@@ -86,7 +86,7 @@
     CGPoint tappedPoint = [tapGesture locationInView:self.view];
     UILabel *temp = [self findLabelUsingPoint:tappedPoint];
 
-    
+
 
     if(temp == self.labelOne)
     {
@@ -160,67 +160,89 @@
 
 -(void) checkGameResult{
 
-    if(([self.labelOne.text isEqualToString: self.labelTwo.text]) && ([self.labelTwo.text isEqualToString:self.labelThree.text]))
 
+
+    if(([self.labelOne.text isEqualToString: self.labelTwo.text]) && ([self.labelTwo.text isEqualToString:self.labelThree.text]))
         {
-               self.whoWon.text = [NSString stringWithFormat:@"%@", self.labelTwo.text];
-                self.whoWon.textColor = [UIColor greenColor];
-                //self.whichPlayerLabel.text = @"";
+        NSString *winnerText = [NSString stringWithFormat:@"%@", self.labelThree.text];
+        [self showWinner:winnerText];
+        NSLog(@"%d", (int)[winnerText length]);
 
         }
+
     else if(([self.labelFour.text isEqualToString: self.labelFive.text]) && ([self.labelFive.text isEqualToString:self.labelSix.text]))
+        {
+            NSString *winnerText = [NSString stringWithFormat:@"%@", self.labelSix.text];
+            [self showWinner:winnerText];
 
-    {
-        self.whoWon.text = [NSString stringWithFormat:@"%@", self.labelSix.text];
-                    self.whoWon.textColor = [UIColor greenColor];
-        //self.whichPlayerLabel.text = @"";
-
-    }
+        }
     else if(([self.labelSeven.text isEqualToString: self.labelEight.text]) && ([self.labelEight.text isEqualToString:self.labelNine.text]))
+        {
+            NSString *winnerText = [NSString stringWithFormat:@"%@", self.labelNine.text];
+            [self showWinner:winnerText];
 
-    {
-        self.whoWon.text = [NSString stringWithFormat:@"%@", self.labelNine.text];
-                    self.whoWon.textColor = [UIColor greenColor];
-        //self.whichPlayerLabel.text = @"";
-
-    }
+        }
     else if(([self.labelOne.text isEqualToString: self.labelFour.text]) && ([self.labelFour.text isEqualToString:self.labelSeven.text]))
+        {
+            NSString *winnerText = [NSString stringWithFormat:@"%@", self.labelSeven.text];
+            [self showWinner:winnerText];
 
-    {
-        self.whoWon.text = [NSString stringWithFormat:@"%@", self.labelSeven.text];
-                    self.whoWon.textColor = [UIColor greenColor];
-        //self.whichPlayerLabel.text = @"";
-
-    }
+        }
     else if(([self.labelTwo.text isEqualToString: self.labelFive.text]) && ([self.labelFive.text isEqualToString:self.labelEight.text]))
+        {
+           NSString *winnerText = [NSString stringWithFormat:@"%@", self.labelEight.text];
+            [self showWinner:winnerText];
 
-    {
-        self.whoWon.text = [NSString stringWithFormat:@"%@", self.labelEight.text];
-                    self.whoWon.textColor = [UIColor greenColor];
-        //self.whichPlayerLabel.text = @"";
-
-    }
+        }
     else if(([self.labelThree.text isEqualToString: self.labelSix.text]) && ([self.labelSix.text isEqualToString:self.labelNine.text]))
+        {
+            NSString *winnerText = [NSString stringWithFormat:@"%@", self.labelNine.text];
+            [self showWinner:winnerText];
 
-    {
-        self.whoWon.text = [NSString stringWithFormat:@"%@", self.labelNine.text];
-                    self.whoWon.textColor = [UIColor greenColor];
-        //self.whichPlayerLabel.text = @"";
-
-    }
+        }
     else if(([self.labelOne.text isEqualToString: self.labelTwo.text]) && ([self.labelFive.text isEqualToString:self.labelNine.text]))
+        {
+            NSString *winnerText = [NSString stringWithFormat:@"%@", self.labelNine.text];
+            [self showWinner:winnerText];
 
-    {
-        self.whoWon.text = [NSString stringWithFormat:@"%@", self.labelNine.text];
-                    self.whoWon.textColor = [UIColor greenColor];
-        //self.whichPlayerLabel.text = @"";
-
-    }
+        }
 }
 
 
+-(void) showWinner:(NSString *) whoWonString {
+
+    UIAlertView *winnerAlert = [[UIAlertView alloc] init];
+    winnerAlert.delegate = self;
 
 
+    if([whoWonString length] > 0)
+    {
+        winnerAlert.title = [NSString stringWithFormat:@"%@ %@", whoWonString, @"WINS THIS ROUND!!"];
+        [winnerAlert addButtonWithTitle:@"Play Again"];
+        [winnerAlert show];
+        self.whoWon.text = @"";
+        [self resetGame];
+
+    }
+
+
+}
+
+-(void) resetGame{
+    self.labelOne.text = @"";
+    self.labelTwo.text = @"";
+    self.labelThree.text = @"";
+    self.labelFour.text = @"";
+    self.labelFive.text = @"";
+    self.labelSix.text = @"";
+    self.labelSeven.text = @"";
+    self.labelEight.text = @"";
+    self.labelNine.text = @"";
+
+    self.count = 1;
+    self.whichPlayerLabel.text = @"Player 1's Turn";
+
+}
 
 
 
