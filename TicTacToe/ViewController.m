@@ -67,6 +67,7 @@
     self.secondsDisplay.text = [NSString stringWithFormat:@"sec:%d", self.seconds];
     self.minutesDisplay.text = [NSString stringWithFormat:@"min:%d", self.minutes];
 
+    [self checkTime];
 
 }
 
@@ -121,12 +122,13 @@
 
     CGPoint tappedPoint = [tapGesture locationInView:self.view];
     UILabel *labelIdentifiedFromTap = [self findLabelUsingPoint:tappedPoint];
+    [self checkTime];
     [self makeChangesCheckGameResult:labelIdentifiedFromTap];
 }
 
 -(IBAction) onDrag:(UIPanGestureRecognizer *) panGesture{
 
-
+    [self checkTime];
     if([panGesture state] == UIGestureRecognizerStateEnded)
     {
 
@@ -299,6 +301,20 @@
 
     }
 
+}
+
+-(void) checkTime{
+
+    UIAlertView *timeUpAlert = [[UIAlertView alloc] init];
+    timeUpAlert.delegate = self;
+
+    if(self.seconds > 10)
+    {
+        timeUpAlert.title = [NSString stringWithFormat:@"TIME UP"];
+        [timeUpAlert addButtonWithTitle:@"Play Again"];
+        [timeUpAlert show];
+        [self resetGame];
+    }
 }
 
 -(void) resetGame{
