@@ -179,6 +179,15 @@
                                     <rect key="frame" x="154" y="15" width="67" height="37"/>
                                 </variation>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAP or DRAG" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPS-Wa-hvX">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="22" y="60" width="104" height="21"/>
+                                </variation>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Acz-z1-9hT">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <color key="backgroundColor" red="1" green="0.26057956249999997" blue="0.13204100220000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -263,6 +272,7 @@
                                 <exclude reference="X2d-mk-txW"/>
                                 <exclude reference="lxm-v5-nKD"/>
                                 <exclude reference="UXe-71-u0m"/>
+                                <exclude reference="DPS-Wa-hvX"/>
                                 <exclude reference="Acz-z1-9hT"/>
                             </mask>
                             <mask key="constraints">
@@ -306,6 +316,7 @@
                                 <include reference="X2d-mk-txW"/>
                                 <include reference="lxm-v5-nKD"/>
                                 <include reference="UXe-71-u0m"/>
+                                <include reference="DPS-Wa-hvX"/>
                                 <include reference="Acz-z1-9hT"/>
                             </mask>
                             <mask key="constraints">
