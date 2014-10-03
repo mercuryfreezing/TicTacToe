@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+
 @property (weak, nonatomic) IBOutlet UILabel *labelOne;
 @property (weak, nonatomic) IBOutlet UILabel *labelTwo;
 @property (weak, nonatomic) IBOutlet UILabel *labelThree;
@@ -71,48 +72,19 @@
 
 }
 
-
-
 -(UILabel *) findLabelUsingPoint:(CGPoint) point
 {
     UILabel *pointOnLabel = [[UILabel alloc] init];
 
-         if(CGRectContainsPoint(self.labelOne.frame, point))
-             {
-                 pointOnLabel = self.labelOne;
-             }
-        else if(CGRectContainsPoint(self.labelTwo.frame, point))
-            {
-                    pointOnLabel = self.labelTwo;
-            }
-        else if(CGRectContainsPoint(self.labelThree.frame, point))
-            {
-                pointOnLabel = self.labelThree;
-            }
-        else if(CGRectContainsPoint(self.labelFour.frame, point))
-            {
-                pointOnLabel = self.labelFour;
-            }
-        else if(CGRectContainsPoint(self.labelFive.frame, point))
-            {
-                pointOnLabel = self.labelFive;
-            }
-        else if(CGRectContainsPoint(self.labelSix.frame, point))
-            {
-                pointOnLabel = self.labelSix;
-            }
-        else if(CGRectContainsPoint(self.labelSeven.frame, point))
-            {
-                pointOnLabel = self.labelSeven;
-            }
-        else if(CGRectContainsPoint(self.labelEight.frame, point))
-            {
-                pointOnLabel = self.labelEight;
-            }
-        else if(CGRectContainsPoint(self.labelNine.frame, point))
-            {
-                pointOnLabel = self.labelNine;
-            }
+    NSArray *arrayOfLabels = [NSArray arrayWithObjects: self.labelOne, self.labelTwo, self.labelThree, self.labelFour, self.labelFive, self.labelSix, self.labelSeven, self.labelEight, self.labelNine, nil];
+
+    for(UILabel *eachLabel in arrayOfLabels)
+    {
+        if(CGRectContainsPoint(eachLabel.frame, point))
+        {
+            pointOnLabel = eachLabel;
+        }
+    }
 
     return pointOnLabel;
 }
