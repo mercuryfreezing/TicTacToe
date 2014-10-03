@@ -31,6 +31,7 @@
     self.count = 1;
     self.whichPlayerLabel.text = @"Player 1's Turn";
 
+
 }
 
 
@@ -84,43 +85,53 @@
 
     CGPoint tappedPoint = [tapGesture locationInView:self.view];
     UILabel *temp = [self findLabelUsingPoint:tappedPoint];
-    [self checkGameResult];
+
+    
 
     if(temp == self.labelOne)
     {
         [self makeChanges:self.labelOne];
+            [self checkGameResult];
     }
     if(temp == self.labelTwo)
     {
         [self makeChanges:self.labelTwo];
+            [self checkGameResult];
     }
     if(temp == self.labelThree)
     {
         [self makeChanges:self.labelThree];
+            [self checkGameResult];
     }
     if(temp == self.labelFour)
     {
         [self makeChanges:self.labelFour];
+            [self checkGameResult];
     }
     if(temp == self.labelFive)
     {
         [self makeChanges:self.labelFive];
+            [self checkGameResult];
     }
     if(temp == self.labelSix)
     {
         [self makeChanges:self.labelSix];
+            [self checkGameResult];
     }
     if(temp == self.labelSeven)
     {
         [self makeChanges:self.labelSeven];
+            [self checkGameResult];
     }
     if(temp == self.labelEight)
     {
         [self makeChanges:self.labelEight];
+            [self checkGameResult];
     }
     if(temp == self.labelNine)
     {
         [self makeChanges:self.labelNine];
+            [self checkGameResult];
     }
 }
 
@@ -153,8 +164,58 @@
 
         {
                self.whoWon.text = [NSString stringWithFormat:@"%@", self.labelTwo.text];
+                self.whoWon.textColor = [UIColor greenColor];
+                //self.whichPlayerLabel.text = @"";
 
         }
+    else if(([self.labelFour.text isEqualToString: self.labelFive.text]) && ([self.labelFive.text isEqualToString:self.labelSix.text]))
+
+    {
+        self.whoWon.text = [NSString stringWithFormat:@"%@", self.labelSix.text];
+                    self.whoWon.textColor = [UIColor greenColor];
+        //self.whichPlayerLabel.text = @"";
+
+    }
+    else if(([self.labelSeven.text isEqualToString: self.labelEight.text]) && ([self.labelEight.text isEqualToString:self.labelNine.text]))
+
+    {
+        self.whoWon.text = [NSString stringWithFormat:@"%@", self.labelNine.text];
+                    self.whoWon.textColor = [UIColor greenColor];
+        //self.whichPlayerLabel.text = @"";
+
+    }
+    else if(([self.labelOne.text isEqualToString: self.labelFour.text]) && ([self.labelFour.text isEqualToString:self.labelSeven.text]))
+
+    {
+        self.whoWon.text = [NSString stringWithFormat:@"%@", self.labelSeven.text];
+                    self.whoWon.textColor = [UIColor greenColor];
+        //self.whichPlayerLabel.text = @"";
+
+    }
+    else if(([self.labelTwo.text isEqualToString: self.labelFive.text]) && ([self.labelFive.text isEqualToString:self.labelEight.text]))
+
+    {
+        self.whoWon.text = [NSString stringWithFormat:@"%@", self.labelEight.text];
+                    self.whoWon.textColor = [UIColor greenColor];
+        //self.whichPlayerLabel.text = @"";
+
+    }
+    else if(([self.labelThree.text isEqualToString: self.labelSix.text]) && ([self.labelSix.text isEqualToString:self.labelNine.text]))
+
+    {
+        self.whoWon.text = [NSString stringWithFormat:@"%@", self.labelNine.text];
+                    self.whoWon.textColor = [UIColor greenColor];
+        //self.whichPlayerLabel.text = @"";
+
+    }
+    else if(([self.labelOne.text isEqualToString: self.labelTwo.text]) && ([self.labelFive.text isEqualToString:self.labelNine.text]))
+
+    {
+        self.whoWon.text = [NSString stringWithFormat:@"%@", self.labelNine.text];
+                    self.whoWon.textColor = [UIColor greenColor];
+        //self.whichPlayerLabel.text = @"";
+
+    }
 }
 
 
