@@ -45,16 +45,16 @@
     self.count = 1;
     self.whichPlayerLabel.text = @"TURN: O";
 
-    [NSTimer scheduledTimerWithTimeInterval:0.5
-                                     target:self
+    [NSTimer scheduledTimerWithTimeInterval:1.0                                     target:self
                                    selector:@selector(timerFire:)
                                    userInfo:nil
                                     repeats:YES];
 
                   self.seconds = 0;
                   self.minutes = 0;
-}
 
+
+}
 
 -(void) timerFire:(NSTimer *) timer{
 
@@ -66,7 +66,11 @@
 
     self.secondsDisplay.text = [NSString stringWithFormat:@"sec:%d", self.seconds];
     self.minutesDisplay.text = [NSString stringWithFormat:@"min:%d", self.minutes];
+
+
 }
+
+
 
 -(UILabel *) findLabelUsingPoint:(CGPoint) point
 {
@@ -113,6 +117,7 @@
 }
 
 -(IBAction) onLabelTapped:(UITapGestureRecognizer *) tapGesture{
+
 
     CGPoint tappedPoint = [tapGesture locationInView:self.view];
     UILabel *labelIdentifiedFromTap = [self findLabelUsingPoint:tappedPoint];
@@ -309,6 +314,9 @@
 
     self.count = 1;
     self.whichPlayerLabel.text = @"TURN O";
+
+    self.seconds = 0;
+    self.minutes = 0;
 
 }
 
