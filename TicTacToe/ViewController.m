@@ -34,6 +34,8 @@
 @property int seconds;
 @property int minutes;
 
+@property NSArray *arrayOfLabels;
+
 
 @end
 
@@ -70,15 +72,15 @@
 
     [self checkTime];
 
+    self.arrayOfLabels = [NSArray arrayWithObjects: self.labelOne, self.labelTwo, self.labelThree, self.labelFour, self.labelFive, self.labelSix, self.labelSeven, self.labelEight, self.labelNine, nil];
+
 }
 
 -(UILabel *) findLabelUsingPoint:(CGPoint) point
 {
     UILabel *pointOnLabel = [[UILabel alloc] init];
 
-    NSArray *arrayOfLabels = [NSArray arrayWithObjects: self.labelOne, self.labelTwo, self.labelThree, self.labelFour, self.labelFive, self.labelSix, self.labelSeven, self.labelEight, self.labelNine, nil];
-
-    for(UILabel *eachLabel in arrayOfLabels)
+    for(UILabel *eachLabel in self.arrayOfLabels)
     {
         if(CGRectContainsPoint(eachLabel.frame, point))
         {
@@ -139,51 +141,15 @@
 -(void) makeChangesCheckGameResult:(UILabel *) temp
 {
 
-    if(temp == self.labelOne)
+    for(UILabel *eachLabel in self.arrayOfLabels)
     {
-        [self makeChanges:self.labelOne];
-        [self checkGameResult];
+        if(temp == eachLabel)
+        {
+            [self makeChanges:eachLabel];
+            [self checkGameResult];
+        }
     }
-    if(temp == self.labelTwo)
-    {
-        [self makeChanges:self.labelTwo];
-        [self checkGameResult];
-    }
-    if(temp == self.labelThree)
-    {
-        [self makeChanges:self.labelThree];
-        [self checkGameResult];
-    }
-    if(temp == self.labelFour)
-    {
-        [self makeChanges:self.labelFour];
-        [self checkGameResult];
-    }
-    if(temp == self.labelFive)
-    {
-        [self makeChanges:self.labelFive];
-        [self checkGameResult];
-    }
-    if(temp == self.labelSix)
-    {
-        [self makeChanges:self.labelSix];
-        [self checkGameResult];
-    }
-    if(temp == self.labelSeven)
-    {
-        [self makeChanges:self.labelSeven];
-        [self checkGameResult];
-    }
-    if(temp == self.labelEight)
-    {
-        [self makeChanges:self.labelEight];
-        [self checkGameResult];
-    }
-    if(temp == self.labelNine)
-    {
-        [self makeChanges:self.labelNine];
-        [self checkGameResult];
-    }
+
 
 }
 
@@ -280,7 +246,7 @@
     UIAlertView *timeUpAlert = [[UIAlertView alloc] init];
     timeUpAlert.delegate = self;
 
-    if(self.seconds > 10)
+    if(self.seconds > 30)
     {
         timeUpAlert.title = [NSString stringWithFormat:@"TIME UP"];
         [timeUpAlert addButtonWithTitle:@"Play Again"];
