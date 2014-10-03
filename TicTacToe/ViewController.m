@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelNine;
 @property (weak, nonatomic) IBOutlet UILabel *whichPlayerLabel;
 @property int count;
+@property (weak, nonatomic) IBOutlet UILabel *whoWon;
 
 @end
 
@@ -83,6 +84,7 @@
 
     CGPoint tappedPoint = [tapGesture locationInView:self.view];
     UILabel *temp = [self findLabelUsingPoint:tappedPoint];
+    [self checkGameResult];
 
     if(temp == self.labelOne)
     {
@@ -122,6 +124,8 @@
     }
 }
 
+
+
 -(void) makeChanges:(UILabel *) labelToMakeChanges
 {
 
@@ -142,6 +146,18 @@
     self.count++;
 
 }
+
+-(void) checkGameResult{
+
+    if(([self.labelOne.text isEqualToString: self.labelTwo.text]) && ([self.labelTwo.text isEqualToString:self.labelThree.text]))
+
+        {
+               self.whoWon.text = [NSString stringWithFormat:@"%@", self.labelTwo.text];
+
+        }
+}
+
+
 
 
 
