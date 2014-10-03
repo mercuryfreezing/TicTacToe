@@ -169,6 +169,16 @@
                                     <rect key="frame" x="168" y="16" width="56" height="21"/>
                                 </variation>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Acz-z1-9hT">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <color key="backgroundColor" red="1" green="0.26057956249999997" blue="0.13204100220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.98484741119999997" green="1" blue="0.95413978529999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="229" y="16" width="67" height="37"/>
+                                </variation>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXe-71-u0m">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <color key="backgroundColor" red="0.3056913400149599" green="0.16693529255825368" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -188,14 +198,31 @@
                                     <rect key="frame" x="22" y="60" width="104" height="21"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Acz-z1-9hT">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6E4-lZ-Puj">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <color key="backgroundColor" red="1" green="0.26057956249999997" blue="0.13204100220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.98484741119999997" green="1" blue="0.95413978529999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="229" y="16" width="67" height="37"/>
+                                    <rect key="frame" x="198" y="61" width="0.0" height="0.0"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mins:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GyA-kE-3OZ">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="158" y="88" width="42" height="21"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="secs:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6F-VR-ODv">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="255" y="87" width="41" height="21"/>
                                 </variation>
                             </label>
                         </subviews>
@@ -271,9 +298,12 @@
                                 <exclude reference="1jC-hh-I5Z"/>
                                 <exclude reference="X2d-mk-txW"/>
                                 <exclude reference="lxm-v5-nKD"/>
+                                <exclude reference="Acz-z1-9hT"/>
                                 <exclude reference="UXe-71-u0m"/>
                                 <exclude reference="DPS-Wa-hvX"/>
-                                <exclude reference="Acz-z1-9hT"/>
+                                <exclude reference="6E4-lZ-Puj"/>
+                                <exclude reference="GyA-kE-3OZ"/>
+                                <exclude reference="V6F-VR-ODv"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="Tz6-QB-Z8F"/>
@@ -315,9 +345,12 @@
                                 <include reference="1jC-hh-I5Z"/>
                                 <include reference="X2d-mk-txW"/>
                                 <include reference="lxm-v5-nKD"/>
+                                <include reference="Acz-z1-9hT"/>
                                 <include reference="UXe-71-u0m"/>
                                 <include reference="DPS-Wa-hvX"/>
-                                <include reference="Acz-z1-9hT"/>
+                                <include reference="6E4-lZ-Puj"/>
+                                <include reference="GyA-kE-3OZ"/>
+                                <include reference="V6F-VR-ODv"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="IrU-3t-dbj"/>
@@ -400,6 +433,9 @@
                         <outlet property="labelSix" destination="Waw-BT-Ln7" id="UKv-sV-aOs"/>
                         <outlet property="labelThree" destination="KB0-aI-p63" id="NO1-3K-Kri"/>
                         <outlet property="labelTwo" destination="mUE-9p-Dx7" id="OXf-Q1-Tss"/>
+                        <outlet property="minutesDisplay" destination="GyA-kE-3OZ" id="JWX-Mp-6Uk"/>
+                        <outlet property="secondsDisplay" destination="V6F-VR-ODv" id="W1K-9T-z9a"/>
+                        <outlet property="timerLabel" destination="6E4-lZ-Puj" id="Xko-2t-7Yo"/>
                         <outlet property="whichPlayerLabel" destination="1jC-hh-I5Z" id="OlF-lj-Twp"/>
                         <outlet property="whoWon" destination="X2d-mk-txW" id="d0R-xO-2to"/>
                         <outlet property="xDragLabel" destination="Acz-z1-9hT" id="8TF-32-zwx"/>

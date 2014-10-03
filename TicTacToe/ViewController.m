@@ -24,14 +24,48 @@
 @property (weak, nonatomic) IBOutlet UILabel *xDragLabel;
 @property (weak, nonatomic) IBOutlet UILabel *yDragLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
+
+@property (nonatomic, strong) NSTimer *theTimer;
+
+@property (weak, nonatomic) IBOutlet UILabel *minutesDisplay;
+@property (weak, nonatomic) IBOutlet UILabel *secondsDisplay;
+@property int seconds;
+@property int minutes;
+
+
 @end
 
 @implementation ViewController
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.count = 1;
     self.whichPlayerLabel.text = @"TURN: O";
+
+    [NSTimer scheduledTimerWithTimeInterval:0.5
+                                     target:self
+                                   selector:@selector(timerFire:)
+                                   userInfo:nil
+                                    repeats:YES];
+
+                  self.seconds = 0;
+                  self.minutes = 0;
+}
+
+
+-(void) timerFire:(NSTimer *) timer{
+
+    self.seconds++;
+    if (self.seconds == 60) {
+        self.minutes++;
+        self.seconds = 0;
+    }
+
+    self.secondsDisplay.text = [NSString stringWithFormat:@"sec:%d", self.seconds];
+    self.minutesDisplay.text = [NSString stringWithFormat:@"min:%d", self.minutes];
 }
 
 -(UILabel *) findLabelUsingPoint:(CGPoint) point
